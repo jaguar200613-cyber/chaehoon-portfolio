@@ -70,6 +70,22 @@
 @media(max-width:700px){.document-downloads{grid-template-columns:1fr;gap:12px;margin:24px 0 30px}.document-download{padding:19px 15px;gap:13px}.document-icon{width:47px;height:52px}.document-icon svg{width:23px;height:23px}.document-title{font-size:16px}.document-get{width:35px;height:35px}.download-section-heading{align-items:flex-start;flex-direction:column;gap:6px}.hero-documents{gap:12px 18px;margin-top:20px}}
 @media print{.document-download{box-shadow:none}.document-get{display:none}}
 
+
+/* Editorial portrait: ABOUT introduction */
+.about-profile-layout{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.about-portrait{position:relative;isolation:isolate;margin:0;max-width:300px}
+.about-portrait::before{content:"";position:absolute;top:-12px;right:-12px;bottom:46px;left:14px;border:1px solid rgba(119,179,173,.55);z-index:-1;pointer-events:none}
+.about-portrait-photo{position:relative;overflow:hidden;aspect-ratio:4/5.15;background:#e9efed;border:1px solid rgba(21,41,52,.10);box-shadow:0 20px 48px rgba(7,21,33,.12)}
+.about-portrait-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:saturate(.96)}
+.about-portrait figcaption{display:flex;flex-direction:column;gap:5px;padding-top:16px}
+.about-portrait figcaption strong{font-size:12px;font-weight:800;letter-spacing:.17em;color:var(--ink)}
+.about-portrait figcaption span{font-size:9px;font-weight:700;letter-spacing:.11em;color:#77908d}
+.about-profile-copy{min-width:0}
+.about-profile-copy .about-columns{grid-template-columns:minmax(0,1fr);gap:23px}
+.about-profile-copy .about-statement{font-size:clamp(19px,2vw,25px);line-height:1.82}
+@media(max-width:1100px){.about-profile-layout{grid-template-columns:minmax(190px,245px) minmax(0,1fr);gap:clamp(25px,4vw,48px)}}
+@media(max-width:720px){.about-profile-layout{grid-template-columns:minmax(0,1fr);gap:35px}.about-portrait{width:min(100%,300px);margin:0 auto}.about-profile-copy .about-columns{gap:21px}}
+
 </style>
 
   <script type="application/ld+json">
@@ -158,9 +174,22 @@
         <div class="about-main">
           <div class="section-kicker" data-i18n="aboutKicker">THE PERSON BEHIND THE WORK</div>
           <h2 class="section-heading" id="aboutTitle" data-i18n-html="aboutTitle">연구의 언어와<br><span class="serif-accent">산업의 언어</span>를 잇습니다.</h2>
-          <div class="about-columns">
+          <div class="about-profile-layout">
+            <figure class="about-portrait">
+              <div class="about-portrait-photo">
+                <img src="assets/chaehoon-portrait.jpg" alt="이재훈(Chae-Hoon Lee) 프로필 사진" loading="lazy" decoding="async" width="520" height="759">
+              </div>
+              <figcaption>
+                <strong>CHAE-HOON LEE</strong>
+                <span>RESEARCH · INNOVATION · STRATEGY</span>
+              </figcaption>
+            </figure>
+            <div class="about-profile-copy">
+              <div class="about-columns">
             <p class="about-statement" data-i18n="aboutStatement">안녕하세요, 이재훈(Chae-Hoon Lee / Alex)입니다. 한국전자기술연구원(KETI)에서 연구관리와 기술사업화, 글로벌 협력 업무를 수행하며 가천대학교에서 기술경영을 연구하고 있습니다.</p>
             <div class="about-detail"><p data-i18n="aboutDetail">저의 관심은 단순한 기술개발을 넘어섭니다. 기업이 R&D 투자를 경제적 성과로 전환하는 방식, 딥테크 기업이 시장을 만들어가는 과정, 그리고 국가가 전략기술 역량을 확보하는 조건을 데이터와 현장 경험을 통해 탐구합니다.</p><div class="identity-chips"><span data-i18n="chip1">기술경영 박사과정</span><span data-i18n="chip2">KETI 선임행정원</span><span data-i18n="chip3">기술·산업 분야 저술가</span></div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
