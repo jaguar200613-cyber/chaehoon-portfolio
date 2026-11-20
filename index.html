@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-page-lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -9,6 +9,10 @@
   <meta property="og:title" content="이재훈 | Chae-Hoon Lee — Technology, Innovation & Strategy">
   <meta property="og:description" content="연구와 산업, 전략을 연결하는 기술경영 연구자 · 딥테크 전문가 · 저술가">
   <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://jaguar200613-cyber.github.io/chaehoon-portfolio/">
+  <link rel="alternate" hreflang="ko" href="https://jaguar200613-cyber.github.io/chaehoon-portfolio/">
+  <link rel="alternate" hreflang="en" href="https://jaguar200613-cyber.github.io/chaehoon-portfolio/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://jaguar200613-cyber.github.io/chaehoon-portfolio/">
   <title>이재훈 · Chae-Hoon Lee | Technology, Innovation & Strategy</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxMiIgZmlsbD0iIzA4MTgyNyIvPjxwYXRoIGQ9Ik0yMCAxN2gyNHY2SDI3djE4aDE3djZIMjBWMTdaIiBmaWxsPSIjZWRmMWVjIi8+PGNpcmNsZSBjeD0iNDYiIGN5PSI0NiIgcj0iNSIgZmlsbD0iI2Q4YWU2YyIvPjwvc3ZnPgo=">
   <style>
@@ -86,6 +90,17 @@
 @media(max-width:1100px){.about-profile-layout{grid-template-columns:minmax(190px,245px) minmax(0,1fr);gap:clamp(25px,4vw,48px)}}
 @media(max-width:720px){.about-profile-layout{grid-template-columns:minmax(0,1fr);gap:35px}.about-portrait{width:min(100%,300px);margin:0 auto}.about-profile-copy .about-columns{gap:21px}}
 
+
+/* Clearly marked, shareable language pages */
+.language-pages{display:inline-flex;align-items:center;gap:2px;padding:4px;border:1px solid rgba(163,189,189,.32);background:rgba(255,255,255,.045);white-space:nowrap}
+.lang-page-link{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:9px 12px;font-size:11px;font-weight:800;letter-spacing:.025em;color:#aebfc2;transition:background .18s,color .18s}
+.lang-page-link:hover{color:#fff;background:rgba(255,255,255,.08)}
+.lang-page-link.is-active{background:var(--gold);color:var(--night)}
+.desktop-nav .compare-nav-link{color:var(--gold)}
+.mobile-compare-link{color:var(--gold)!important}
+@media(max-width:1200px){.desktop-nav{gap:16px}.language-pages{padding:3px}.lang-page-link{padding:8px 9px}}
+@media(max-width:720px){.language-pages{padding:3px}.lang-page-link{padding:7px 9px;font-size:10px}}
+@media(max-width:420px){.header-inner{gap:8px}.brand{gap:8px}.header-actions{gap:5px}.brand-symbol{font-size:25px}.brand-name{font-size:9px}.brand-sub{font-size:6px}.lang-page-link{padding:7px;font-size:10px}}
 </style>
 
   <script type="application/ld+json">
@@ -108,15 +123,16 @@
         <a href="#publications" data-i18n="navPubs">연구성과</a>
         <a href="#books" data-i18n="navBooks">저서</a>
         <a href="#experience" data-i18n="navCareer">경력</a>
+        <a href="./compare.html" class="compare-nav-link" data-i18n="navCompare">한·영 비교</a>
       </nav>
       <div class="header-actions">
-        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch to English"><span class="lang-active" id="langLabel">EN</span><span aria-hidden="true">↗</span></button>
+        <nav class="language-pages" aria-label="한국어 또는 영어 홈페이지 선택"><a class="lang-page-link is-active" href="./index.html" lang="ko" data-language="ko" aria-current="page">한국어</a><a class="lang-page-link" href="./en.html" lang="en" data-language="en">English</a></nav>
         <a class="header-contact" href="#contact"><span data-i18n="navContact">연락하기</span><span aria-hidden="true">↗</span></a>
         <button class="menu-toggle" id="menuToggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span></button>
       </div>
     </div>
     <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden>
-      <a href="#about" data-i18n="navAbout">소개</a><a href="#research" data-i18n="navResearch">연구분야</a><a href="#publications" data-i18n="navPubs">연구성과</a><a href="#books" data-i18n="navBooks">저서</a><a href="#experience" data-i18n="navCareer">경력</a><a href="#contact" data-i18n="navContactShort">연락처</a>
+      <a href="#about" data-i18n="navAbout">소개</a><a href="#research" data-i18n="navResearch">연구분야</a><a href="#publications" data-i18n="navPubs">연구성과</a><a href="#books" data-i18n="navBooks">저서</a><a href="#experience" data-i18n="navCareer">경력</a><a href="#contact" data-i18n="navContactShort">연락처</a><a href="./compare.html" class="mobile-compare-link" data-i18n="navCompare">한·영 비교</a>
     </nav>
   </header>
 
@@ -282,7 +298,7 @@
   'use strict';
   const en = {
     skip: 'Skip to content',
-    navAbout: 'About', navResearch: 'Research', navPubs: 'Publications', navBooks: 'Books', navCareer: 'Experience', navContact: 'Contact', navContactShort: 'Contact',
+    navAbout: 'About', navResearch: 'Research', navPubs: 'Publications', navBooks: 'Books', navCareer: 'Experience', navContact: 'Contact', navContactShort: 'Contact', navCompare: 'KR / EN side by side',
     heroEyebrow: 'RESEARCHER · INNOVATION STRATEGIST · AUTHOR',
     heroTitle: 'From technological<br>potential to <em>real value.</em>',
     heroLead: 'Why do some technologies reshape industries while others never leave the lab?',
@@ -360,8 +376,7 @@
   const textNodes = [...document.querySelectorAll('[data-i18n]')];
   const htmlNodes = [...document.querySelectorAll('[data-i18n-html]')];
   const originals = new Map([...textNodes,...htmlNodes].map(el=>[el,el.hasAttribute('data-i18n-html') ? el.innerHTML : el.textContent]));
-  const langToggle = document.getElementById('langToggle');
-  const langLabel = document.getElementById('langLabel');
+  const languageLinks = [...document.querySelectorAll('.lang-page-link')];
   let language = 'ko';
 
   function setLanguage(nextLanguage) {
@@ -376,15 +391,15 @@
     }
     document.documentElement.lang = language;
     document.title = language === 'en' ? 'Chae-Hoon Lee (Alex) | Research · Industry · Strategy' : '이재훈 · Chae-Hoon Lee | Technology, Innovation & Strategy';
-    langLabel.textContent = language === 'en' ? 'KO' : 'EN';
-    langToggle.setAttribute('aria-label', language === 'en' ? '한국어로 전환' : 'Switch to English');
+    languageLinks.forEach(link => { const active = link.dataset.language === language; link.classList.toggle('is-active', active); if(active) link.setAttribute('aria-current','page'); else link.removeAttribute('aria-current'); });
+    const portrait = document.querySelector('.about-portrait-photo img'); if(portrait) portrait.alt = language === 'en' ? 'Portrait of Chae-Hoon Lee' : '이재훈(Chae-Hoon Lee) 프로필 사진';
     document.querySelector('.brand').setAttribute('aria-label',language === 'en' ? 'Chae-Hoon Lee portfolio home' : '이재훈 포트폴리오 홈');
     const mainNav = document.querySelector('.desktop-nav');
     mainNav.setAttribute('aria-label',language === 'en' ? 'Main navigation' : '주요 메뉴');
-    try { localStorage.setItem('chaehoon-portfolio-lang',language); } catch (_) {}
+
   }
-  langToggle?.addEventListener('click',()=>setLanguage(language === 'ko' ? 'en' : 'ko'));
-  try { if (localStorage.getItem('chaehoon-portfolio-lang') === 'en') setLanguage('en'); } catch (_) {}
+  languageLinks.forEach(link => link.addEventListener('click', () => { link.href=(link.dataset.language === 'en' ? './en.html' : './index.html') + window.location.hash; }));
+  setLanguage(document.documentElement.dataset.pageLang);
 
   const menuToggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071521">
+<meta name="robots" content="noindex,follow">
+<title>한국어 · English 나란히 보기 | Chae-Hoon Lee</title>
+<meta name="description" content="이재훈 포트폴리오의 한국어·영어 페이지를 나란히 비교합니다.">
+<style>
+:root{--night:#071521;--gold:#dbb678;--aqua:#9dd2cb;--surface:#f4f2ec;--line:#334751;--font:'Pretendard Variable','Pretendard','Noto Sans KR','Apple SD Gothic Neo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:var(--font)}
+body{background:#e5ecea;color:#ecf0ed}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.compare-header{background:var(--night);padding:19px clamp(18px,3vw,42px);display:flex;align-items:center;gap:28px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.brand{font-size:18px;font-weight:800;letter-spacing:.075em;white-space:nowrap}
+.brand b{color:var(--gold)}
+.compare-title{display:flex;flex-direction:column;gap:5px;flex:1;min-width:210px}
+.compare-title strong{font-size:15px}
+.compare-title small{font-size:11px;line-height:1.5;color:#9fb3b6}
+.page-links{display:flex;gap:8px;flex-wrap:wrap}
+.page-links a{border:1px solid #556a70;padding:10px 13px;font-size:12px;font-weight:700}
+.page-links a:hover{border-color:var(--gold);color:var(--gold)}
+.jump-nav{background:#102837;padding:9px clamp(18px,3vw,42px);display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.jump-nav strong{font-size:11px;color:#a3b7b8;margin-right:12px}
+.jump-nav button{font:700 11px var(--font);cursor:pointer;border:1px solid #405961;color:#dce7e6;background:transparent;padding:7px 10px}
+.jump-nav button:hover{color:var(--night);background:var(--gold);border-color:var(--gold)}
+.compare-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:14px;max-width:2000px;margin:auto}
+.compare-panel{min-width:0;background:#f4f2ec;border:1px solid #b7c7c5;box-shadow:0 14px 35px rgba(7,21,33,.12)}
+.panel-heading{height:44px;padding:0 18px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;color:#203740;border-bottom:1px solid #d5e0dc}
+.panel-heading strong{font-size:12px}
+.panel-heading a{font-size:11px;font-weight:750;color:#32736e;white-space:nowrap}
+.panel-heading a:hover{text-decoration:underline}
+.compare-panel iframe{display:block;width:100%;height:calc(100vh - 230px);min-height:580px;border:0;background:var(--surface)}
+.compare-footer{max-width:2000px;margin:auto;padding:0 18px 20px;color:#52716e;font-size:11px;line-height:1.6}
+@media(max-width:850px){.compare-header{gap:13px}.compare-layout{grid-template-columns:1fr}.compare-panel iframe{height:67vh;min-height:480px}.jump-nav{gap:5px}.jump-nav strong{width:100%}}
+</style>
+</head>
+<body>
+<header class="compare-header">
+  <a class="brand" href="./index.html" aria-label="Chae-Hoon Lee 홈페이지">CL<b>.</b></a>
+  <div class="compare-title"><strong>한국어 · English 나란히 보기</strong><small>두 언어의 홈페이지를 한 화면에서 비교할 수 있습니다. Compare both versions side by side.</small></div>
+  <nav class="page-links" aria-label="언어별 원본 페이지">
+    <a href="./index.html" lang="ko">한국어 페이지 ↗</a>
+    <a href="./en.html" lang="en">English page ↗</a>
+  </nav>
+</header>
+<nav class="jump-nav" aria-label="한국어와 영어 같은 섹션으로 이동">
+ <strong>두 페이지 함께 이동 / Jump to section</strong>
+ <button type="button" data-section="top">처음 / Top</button>
+ <button type="button" data-section="about">소개 / About</button>
+ <button type="button" data-section="research">연구 / Research</button>
+ <button type="button" data-section="publications">논문 / Publications</button>
+ <button type="button" data-section="books">저서 / Books</button>
+ <button type="button" data-section="experience">경력 / Experience</button>
+</nav>
+<main class="compare-layout" aria-label="한국어 및 영어 홈페이지 동시 보기">
+  <section class="compare-panel" aria-label="한국어 홈페이지">
+    <div class="panel-heading"><strong lang="ko">한국어 · KOREAN</strong><a href="./index.html">전체 화면에서 보기 ↗</a></div>
+    <iframe id="koPage" src="./index.html" title="한국어 홈페이지" loading="eager"></iframe>
+  </section>
+  <section class="compare-panel" aria-label="English homepage">
+    <div class="panel-heading"><strong lang="en">ENGLISH · 영어</strong><a href="./en.html">Open full page ↗</a></div>
+    <iframe id="enPage" src="./en.html" title="English homepage" loading="eager"></iframe>
+  </section>
+</main>
+<p class="compare-footer">각 페이지는 독립적으로 스크롤됩니다. 모바일에서는 위아래로 표시됩니다. / Each page scrolls independently; on mobile, pages are stacked.</p>
+<script>
+(() => {
+ 'use strict';
+ const views=[document.getElementById('koPage'),document.getElementById('enPage')];
+ document.querySelectorAll('[data-section]').forEach(button=>button.addEventListener('click',()=>{
+   const hash='#'+button.dataset.section;
+   views.forEach((frame,i)=>{
+     try { frame.contentWindow.location.hash=hash; }
+     catch(_) { frame.src=(i===0?'./index.html':'./en.html')+hash; }
+   });
+ }));
+})();
+</script>
+</body>
+</html>
